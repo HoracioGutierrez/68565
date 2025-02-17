@@ -1,2 +1,31 @@
 https://ant.design/components
 https://ant.design/components/flex#api
+https://tailwindui.com/components/application-ui/navigation/navbars
+https://mambaui.com/
+ https://lucide.dev/icons/
+ 
+Componentes : 
+
+- Son funciones 
+- Arrancan en mayuscula
+- tienen retorno si o si
+- se pueden retornar muchos tipos de datos pero casi siempre es JSX
+- no se puede retornar DOS o mas elementos JSX en simultaneo
+- me permiten tener UI
+
+Destructuring
+
+
+
+Pre Entrega 1 : 
+
+- Crear una carpeta "components" en la carpeta "src"
+
+- Crear un archivo NavBar.jsx en la carpeta "components" que contenga el componente de NavBar : Tiene que mostrar un menu de links
+- Crear un archivo CartWidget.jsx en la carpeta "components" que contenga el componente de CartWidget : Tiene que mostrar un icono de carrito o imagen de carrito
+- Crear un archivo ItemListContainer.jsx en la carpeta "components" que contenga el componente de ItemListContainer : Tiene que mostrar un mensaje de bienvenida en pantalla usando props
+
+
+- CartWidget va dentro de NavBar, osea que se importa en el archivo NavBar.jsx
+- Navbar va dentro de App.jsx, osea que se importa en el archivo App.jsx
+- ItemListContainer va dentro de App.jsx, osea que se importa en el archivo App.jsx

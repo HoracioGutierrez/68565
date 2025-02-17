@@ -1,34 +1,14 @@
-/* 
-Componentes : 
+import React from "react";
+import { Header } from "./Header";
+import { Main } from "./components/Main";
+import { Footer } from "./components/Footer";
 
-- Son funciones 
-- Arrancan en mayuscula
-- tienen retorno si o si
-- se pueden retornar muchos tipos de datos pero casi siempre es JSX
-- no se puede retornar DOS o mas elementos JSX en simultaneo
-- me permiten tener UI
-
-*/
-import Header from "./Header";
-import { Button } from "antd";
-
-function App() {
+export default () => {
   return (
     <div>
       <Header />
-
-      {/* Main */}
-      <main>
-        <h2>Home</h2>
-        <Button type="primary">Button</Button>
-      </main>
-
-      {/* Footer */}
-      <footer>
-        <p>&copy; Copyright 2025 - Horacio Gutierrez</p>
-      </footer>
+      <Main />
+      <Footer />
     </div>
   );
 }
-
-export default App;
