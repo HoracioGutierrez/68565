@@ -1,6 +1,26 @@
-body {
-    /* background-color: red; */
+$text: #110b07;
+$background: #fbf8f5;
+$primary: #b5714f;
+$secondary: #d6cd9d;
+$accent: #c3c87c;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
 }
+
+#root {
+    background-color: $background;
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+}
+
 
 .btn {
     background-color: red;
@@ -8,4 +28,45 @@ body {
     font-weight: bold;
     padding: 10px;
     border-radius: 5px;
+}
+
+.header {
+    background-color: $primary;
+    color: $text;
+    padding: 1rem;
+}
+
+.header__nav {
+    display: flex;
+    gap: 1rem;
+}
+
+.header__link {
+    color: $text;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.main {
+    flex-grow: 1;
+    padding: 1rem;
+}
+
+.footer {
+    background-color: $primary;
+    padding: 0.5rem;
+    text-align: center;
+    color: $text;
+}
+
+.footer__text {
+    opacity: 0.5;
+}
+
+.dark {
+    background-color: $text;
+}
+
+.light {
+    background-color: $background;
 }
