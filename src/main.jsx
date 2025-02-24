@@ -3,7 +3,7 @@ import { StrictMode } from "react";
 import App from "./App.jsx";
 import "./index.scss";
 
-const DOMElement = document.getElementById("root"); //<div id="root"></div>
+const DOMElement = document.getElementById("root");
 const VDOMElement = createRoot(DOMElement);
 
 VDOMElement.render(
