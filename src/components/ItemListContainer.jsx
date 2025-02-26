@@ -6,18 +6,29 @@ const ItemListContainer = () => {
 
     //Efectos
     useEffect(() => {
-        fetch('https://dummyjson.com/products')
+        fetch('/productos.json')
             .then((res) => {
                 return res.json()
             })
             .then((res) => {
-                setResultado(res.products) //[....]
+                //res = { products : []}
+                //res = []
+                setResultado(res) //[....]
             });
     }, [])
 
     //Vista
     return (
-        <div>{JSON.stringify(resultado)}</div>
+        <div>
+            {resultado.map((producto) => {
+                return (
+                    <article>
+                        <h3>{producto.title}</h3>
+                        <p>${producto.price}</p>
+                    </article>
+                )
+            })}
+        </div>
     )
 }
 export default ItemListContainer

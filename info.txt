@@ -53,43 +53,30 @@ Son todos funciones que arrancan con la palabra "use", solo se pueden ejecutar d
 
     
 Notas del hook useState : 
+
+
+Sintaxis : const [variableEstado,setVariableEstado] = useState(valorInicial);
     
 const elResultadoDelHookEstado = useState(true) //[true,()=>{}]
 const miEstado = elResultadoDelHookEstado[0] //true
 const unaFuncion = elResultadoDelHookEstado[1] //()=>{}
 
-console.log(elResultadoDelHookEstado)
-
-Esto me permite tener una variable que si su valor cambia, cambia tambien el UI
-Formula (sintaxis)
-const [elEstado,setElEstado] = useState(valorInicial)
-
-const toggleSidebar = true;
-
-Quiero crear una constante llamada "contador" que valga lo que haya en el array que me devuelve el useState, en esa misma posicion del array, osea 0.
-Quiero crear una constante llamada "setContador" que valga lo que haya en la posicion 1 del array que me devuelve el useState.
-contador = 1
-contador++
-contador = contador + 1
-contador += 1
-
-
-
-Si el estado cambia, el componente se recarga (el componente detecta el cambio de estado entonces se vuelve a reeecutar)
-Para cambiar el valor a un estado, si o si tengo que usar su funcion set
+- Esto me permite tener una variable que si su valor cambia, cambia tambien el UI
+- Quiero crear una constante llamada "contador" que valga lo que haya en el array que me devuelve el useState, en esa misma posicion del array, osea 0.
+- Quiero crear una constante llamada "setContador" que valga lo que haya en la posicion 1 del array que me devuelve el useState.
+const [contador,setContador] = useState(0)
+- Si el estado cambia, el componente se recarga (el componente detecta el cambio de estado entonces se vuelve a reejecutar)
+- Para cambiar el valor a un estado, si o si tengo que usar su funcion set
 
 Lugares/ideas en donde podria usar estados (useState) : 
 
 - para guardar los datos obtenidos en una api (el valor inicial sera el mismo tipo de dato 
 que vas a obtener de la api)
-
 - cambiar modo claro a oscuro (init : Boolean)
 - un contador (init : Number)
 - abrir y cerrar una barra de navegacion (init : Boolean)
 - un popup que abra y cierra (init : Boolean)
 - mostrar el nombre del usuario logueado (init : String)
-
-
 
 
 Operador Ternario : Es como un if/else ( condicion ? true : false)
@@ -113,8 +100,6 @@ if(condicion){
     return Y
 }
 
-
-
 Tipos de componentes / Patrones : 
 
 - Componentes Layout : Este componente solo agrupa grandes partes de la aplicacion
@@ -126,40 +111,72 @@ Tipos de componentes / Patrones :
 * se necesita uno de cada uno para poder desarrollar el patron container
 
 
-document.addEventListener("click",()=>{})
+//Esta linea es la que hace el pedido
+fetch('https://dummyjson.com/products')// {}
+    .then((respuestaBinaria) => {
+        //Esta linea convierte la respuesta binaria en un objeto
+        return respuestaBinaria.json()
+        return respuestaBinaria.text()
+        return respuestaBinaria.blob()
+    })
+    .then((respuestaConFormato) => {
+        console.log(respuestaConFormato)
+    })
+    .catch((err) => {
+        console.log("Hubo un error")
+        console.log(err)
+    })
 
-    fetch()
-        .then((res)=>{ return 1 }) : Si el fetch salio bien
+Storage API
+Fetch API : Esta se encarga de hacer requests
+Promise API : Esta se encarga de "envolver" partes del codigo de forma tal que cuando esas partes terminen de ejecutarse, la promesa te "avisa" cuando termino todo
 
-        Este res seria el valor 1
-        .then((res)=>{ return "Hola" }) 
+const resultado = fetch("/productos")
+const resultado = caches.open("demo")
 
-        Este res seria el valor "Hola"
-        .then((res)=>{ return true }) 
+ASYNC / AWAIT
+GENERATOR FUNCTIONS
 
-        Este res seria el valor true
-        .then((res)=>{}) 
 
-        .then((res)=>{}) : Si el fetch salio bien
-        .catch(()=>{}) : Si el fetch salio mal
-        .finally(()=>{}) : Siempre que el fetch termine, se ejecuta
+Ciclo de vida : 
 
-    fetch('https://dummyjson.com/products')
-        .then(res => res.json())
-        .then(console.log);
-    
-    */
+UN componente se va a volver a ejecutar a si mismo si : 
 
-    //Esta linea es la que hace el pedido
-    fetch('https://dummyjson.com/products')// {}
-        .then((respuestaBinaria) => {
-            //Esta linea convierte la respuesta binaria en un objeto
-            return respuestaBinaria.json()
-        })
-        .then((respuestaConFormato) => {
-            console.log(respuestaConFormato)
-        })
-        .catch((err) => {
-            console.log("Hubo un error")
-            console.log(err)
-        })
+- Uno de sus estados cambia
+- Recibir nuevos valores de props
+- Si el componente padre cambia
+
+
+useEffect : 
+
+Es un hook que sirve para envolver bloques de codigo que no queremos que pasen muchas veces, sino una sola vez o de manera "controlada", es decir, si su array de dependencias cambia de valores.
+
+Sintaxis 
+
+useEffect(function(){},[])
+useEffect(()=>{},[])
+useEffect(()=>{},[x,y,z])
+
+Lugares/ideas en donde podria usar efectos (useEffect) : 
+
+- Pedidos a una api, guardaria todo el fetch adentro del efecto
+- Timers (setInterva / setTimeout) , para que no se inicien multiples contadores en simultateno
+- Eventos pero solo si se hace addEventListener
+
+
+const nombres = ["Ana","juan","Carlos"];
+const usuarios = [{nombre:"Ana",sueldo:1000},{nombre:"Carlos",sueldo:500}]
+
+for(){}
+const res = array.forEach((elemento,indice)=>{}) => undefined
+
+
+const res = array.map((elemento,indice)=>{}) => [] igual longitud
+const res = array.filter((elemento,indice)=>{}) => [] igual o menor longitud
+const res = array.some((elemento,indice)=>{}) => true | false
+const res = array.find((elemento,indice)=>{}) => elemento
+
+
+array.sort(()=>{})
+array.reduce(()=>{})
+etc...

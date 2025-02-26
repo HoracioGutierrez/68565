@@ -6,8 +6,14 @@ import "./index.scss";
 const DOMElement = document.getElementById("root");
 const VDOMElement = createRoot(DOMElement);
 
+/*
 VDOMElement.render(
   <StrictMode>
     <App />
   </StrictMode>
+); 
+*/
+
+VDOMElement.render(
+  <App />
 );
