@@ -47,6 +47,16 @@ $accent: #c3c87c;
     font-weight: bold;
 }
 
+.header__link.active {
+    color: $accent;
+}
+
+.header__link.transitioning {
+    view-transition-name: "page";
+}
+
+/* view transition styles */
+
 .main {
     flex-grow: 1;
     padding: 1rem;
@@ -70,3 +80,21 @@ $accent: #c3c87c;
 .light {
     background-color: $background;
 }
+
+.fluid-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.product-card {
+    background-color: white;
+    border-radius: 5px;
+    padding: 1rem;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+}
+
+.product-card__image {
+    width: 100%;
+}
+

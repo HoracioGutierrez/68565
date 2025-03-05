@@ -5,6 +5,8 @@ https://mambaui.com/
 https://lucide.dev/icons/
 https://www.realtimecolors.com/
 https://dummyjson.com/docs
+https://reactrouter.com/home
+
 
 Componentes : 
 
@@ -180,3 +182,10 @@ const res = array.find((elemento,indice)=>{}) => elemento
 array.sort(()=>{})
 array.reduce(()=>{})
 etc...
+
+
+
+ENRUTAMIENTO
+
+
+

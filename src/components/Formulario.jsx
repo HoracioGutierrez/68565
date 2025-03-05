@@ -6,13 +6,13 @@ function Formulario() {
     //useRef(); => { current : null }
     const inputRef = useRef()
 
-    document.addEventListener("click",()=>{
+    /* document.addEventListener("click",()=>{
         console.log("click en el documento")
     })
-
+ */
     //efectos
     useEffect(() => {
-        console.log("🚀 ~ Formulario ~ inputRef:", inputRef) //{current:<input/>}
+        //console.log("🚀 ~ Formulario ~ inputRef:", inputRef) //{current:<input/>}
         //inputRef.current.value => "El valor del input"
     }, [])
 
@@ -22,7 +22,7 @@ function Formulario() {
     //input.addEventListener('change', (e) => {})
     const handleSubmit = (e) => {
         e.preventDefault() //Esto nos da la "no recarga" de pagina
-        console.log(inputRef.current.value)
+        //console.log(inputRef.current.value)
     }
 
     //vista

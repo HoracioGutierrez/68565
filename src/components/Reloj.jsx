@@ -8,7 +8,7 @@ function Reloj() {
     //useEffect(()=>{},[])
     useEffect(()=>{
         setInterval(()=>{
-            console.log("paso un segundo")
+            //console.log("paso un segundo")
         },1000)
     },[])
 
