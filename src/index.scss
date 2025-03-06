@@ -82,19 +82,37 @@ $accent: #c3c87c;
 }
 
 .fluid-grid {
+    flex-grow: 1;
+    padding: 1rem;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 1rem;
+
+    @media (min-width: 768px) {
+        padding: 3rem;
+        gap: 1.5rem;
+    }
 }
 
 .product-card {
+    align-self: start;
     background-color: white;
     border-radius: 5px;
     padding: 1rem;
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+    min-height: 320px;
+    display: flex;
+    flex-direction: column;
 }
 
 .product-card__image {
     width: 100%;
 }
 
+.product-card__description {
+    margin-top: auto;
+}
+
+.flex-grow {
+    flex-grow: 1;
+}
