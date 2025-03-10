@@ -189,3 +189,14 @@ ENRUTAMIENTO
 
 
 
+
+
+Prop Driling vs State Uplifting :
+
+Si le quiero pasar el valor de algo de Hijo a Padre 
+
+1- Tengo que hacer una funcion en componente Padre
+2- Le paso esa funcion de Padre a Hijo por props
+3- Recibo/declaro props en el Hijo
+4- Uso esa funcion en un evento/efecto y le puedo pasar parametros
+5- Recibo esos parametros en la funcion del Padre

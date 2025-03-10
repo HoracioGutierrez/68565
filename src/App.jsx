@@ -10,17 +10,12 @@ export default () => {
   return (
     <>
       <Header />
-
-      {/* if(urlNavegador == "/") { return <ItemListContainer/> } */}
-      {/* if(urlNavegador == "/carrito") { return <Carrito/> } */}
-      {/* if(urlNavegador == "/perfumes") { return <Perfumes/> } */}
       <Routes>
         <Route path="/" element={<ItemListContainer />} />
-        <Route path="/carrito" element={<Carrito/>} />
-        <Route path="/categorias/:id" element={<ItemListContainer/>} />
-        <Route path="/producto/:id" element={<ProductDetailContainer/>} />
+        <Route path="/carrito" element={<Carrito />} />
+        <Route path="/categorias/:id" element={<ItemListContainer />} />
+        <Route path="/producto/:id" element={<ProductDetailContainer />} />
       </Routes>
-
       <Footer />
     </>
   );

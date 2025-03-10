@@ -1,6 +1,10 @@
+import Formulario from "./Formulario"
+
 const Carrito = () => {
   return (
-    <div>Carrito</div>
+    <div>
+      <Formulario/>
+    </div>
   )
 }
 

@@ -1,13 +1,10 @@
 import { useState } from "react"
 
-//Este es el componente
 export const Contador = () => {
 
-    //Este es el estado
     const [contador, setContador] = useState(0)
     const [isDarkMode, setIsDarkMode] = useState(true)
 
-    //Estas son acciones
     const handleSumar = () => {
         setContador(contador + 1)
     }
@@ -20,7 +17,6 @@ export const Contador = () => {
         setIsDarkMode(!isDarkMode)
     }
 
-    //Esta es la vista
     return (
         <div className={isDarkMode ? "dark" : "light"}>
             <p>Cantidad : {contador}</p>

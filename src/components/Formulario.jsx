@@ -1,40 +1,43 @@
-import { useEffect, useRef } from "react"
+import { useState } from "react"
+import Input from "./Input"
 
 function Formulario() {
 
-    //estados
-    //useRef(); => { current : null }
-    const inputRef = useRef()
+    const [valorDelInput, setValorDelInput] = useState("")
 
-    /* document.addEventListener("click",()=>{
-        console.log("click en el documento")
-    })
- */
-    //efectos
-    useEffect(() => {
-        //console.log("🚀 ~ Formulario ~ inputRef:", inputRef) //{current:<input/>}
-        //inputRef.current.value => "El valor del input"
-    }, [])
-
-    //acciones
-    //form.addEventListener('submit', (e) => {})
-    //submitButton.addEventListener('click', (e) => {})
-    //input.addEventListener('change', (e) => {})
-    const handleSubmit = (e) => {
-        e.preventDefault() //Esto nos da la "no recarga" de pagina
-        //console.log(inputRef.current.value)
+    const handleSubmit = (event) => {
+        event.preventDefault()
+        console.log("El usuario escribio : " + valorDelInput)
     }
 
-    //vista
+    const saludar = (event) => {
+        //event.preventDefault()
+        //console.log("soy saludar")
+        //console.log(event)
+    }
+
+    const handleTitle = (event) => {
+        //console.log("soy handleTitle")
+        //console.log(event)
+        //event.stopPropagation()
+    }
+
+    const handleInputValue = (data) => {
+        //console.log(data)
+        setValorDelInput(data)
+    }
+
     return (
-        <div>
-            <h2>Suscribete al newsletter</h2>
+        <div onClick={saludar}>
+            <h2 onClick={handleTitle}>Suscribete al newsletter</h2>
             <form onSubmit={handleSubmit}>
                 <div>
-                    <label htmlFor="nombre">Nombre</label>
-                    <input type="text" id="nombre" name="nombre" ref={inputRef} />
+                    <label htmlFor="nombre" >Nombre</label>
+                    <Input
+                        onInputValue={handleInputValue}
+                    />
                 </div>
-                <button>suscribir</button>
+                <button type="submit">suscribir</button>
             </form>
         </div>
     )
