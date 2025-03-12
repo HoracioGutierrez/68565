@@ -1,5 +1,6 @@
 import { Flex } from "antd";
 import { NavLink } from "react-router-dom";
+import CartWidget from "./components/CartWidget";
 
 export const Header = () => {
   return (
@@ -10,9 +11,7 @@ export const Header = () => {
         <NavLink viewTransition to="/categorias/perfumes" className="header__link">perfumes</NavLink>
         <NavLink viewTransition to="/categorias/muebles" className="header__link">muebles</NavLink>
         <NavLink viewTransition to="/categorias/comida" className="header__link">comida</NavLink>
-        <NavLink viewTransition to="/carrito" className="header__link">
-          <img src="/shopping-cart.svg" alt="Icono de carrito" />
-        </NavLink>
+        <CartWidget/>
       </nav>
     </Flex>
   );

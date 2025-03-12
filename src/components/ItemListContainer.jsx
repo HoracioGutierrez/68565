@@ -17,6 +17,7 @@ const ItemListContainer = () => {
             });
     }, [params.id])
 
+
     return (
         <div className="fluid-grid">
             {resultado.map((producto) => {
