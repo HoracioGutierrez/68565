@@ -189,8 +189,6 @@ ENRUTAMIENTO
 
 
 
-
-
 Prop Driling vs State Uplifting :
 
 Si le quiero pasar el valor de algo de Hijo a Padre 
@@ -200,3 +198,33 @@ Si le quiero pasar el valor de algo de Hijo a Padre
 3- Recibo/declaro props en el Hijo
 4- Uso esa funcion en un evento/efecto y le puedo pasar parametros
 5- Recibo esos parametros en la funcion del Padre
+
+
+Provider/Contexto
+
+render condicionales
+
+memo()
+useMemo()
+useCallback()
+
+
+Context API : 
+
+Implementar Contexto/Provider
+
+1- crear el contexto con createContext de react
+2- poner la propiedad Provider que viene dentro del contexto en una variable individual
+3- envolver a la aplicacion en el Provider del paso 2
+4- configurar el prop "value" del Provider para que el contexto ya tenga valor
+
+5? - hacer que todo o parte del "value" sean estados, de esa manera se va a poder modificar el contexto y recibir actualizaciones automaticas
+6? - crear un componente propio el cual va a almacenar al Provider(2) y todo su desarrollo
+
+
+Implementar uso del contexto
+
+1- ir a un componente hijo del Provider
+2- importar el hook useContext
+3- importar el contexto creado en el paso 1
+4- usar el contexto(4) como parametro del hook(2) y eso nos da el valor actual del contexto/provider

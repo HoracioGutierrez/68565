@@ -5,17 +5,12 @@ import { Routes, Route } from "react-router-dom";
 import ItemListContainer from "./components/ItemListContainer";
 import Carrito from "./components/Carrito";
 import ProductDetailContainer from "./components/ProductDetailContainer";
-import { MiProvider } from "./components/CustomContext";
-
+import CarritoProvider from "./components/CarritoContext";
+import { Toaster } from "react-hot-toast";
 
 const App = () => {
-  const [cantidadProductos, setCantidadProductos] = useState(0);
-
   return (
-    <MiProvider value={{
-      cantProd: cantidadProductos,
-      setCantidadProductos: setCantidadProductos
-    }}>
+    <CarritoProvider>
       <Header />
       <Routes>
         <Route path="/" element={<ItemListContainer />} />
@@ -24,7 +19,8 @@ const App = () => {
         <Route path="/producto/:id" element={<ProductDetailContainer />} />
       </Routes>
       <Footer />
-    </MiProvider>
+      <Toaster />
+    </CarritoProvider>
   );
 }
 

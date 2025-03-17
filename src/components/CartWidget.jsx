@@ -1,16 +1,15 @@
 import { useContext } from "react"
 import { NavLink } from "react-router-dom"
-import { miContexto } from "./CustomContext"
+import { carritoContexto } from "./CarritoContext"
 
 const CartWidget = () => {
 
-    const elValorDelContexto = useContext(miContexto)
-    console.log("🚀 ~ CartWidget ~ elValorDelContexto:", elValorDelContexto)
+    const valor = useContext(carritoContexto)
 
     return (
         <NavLink viewTransition to="/carrito" className="header__link">
             <img src="/shopping-cart.svg" alt="Icono de carrito" />
-            {elValorDelContexto.cantProd}
+            {valor.cantProd}
         </NavLink>
     )
 }

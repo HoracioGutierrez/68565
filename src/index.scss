@@ -95,7 +95,7 @@ $accent: #c3c87c;
 }
 
 .product-card {
-    align-self: start;
+    align-self: stretch;
     background-color: white;
     border-radius: 5px;
     padding: 1rem;
@@ -103,7 +103,7 @@ $accent: #c3c87c;
     min-height: 320px;
     display: flex;
     flex-direction: column;
-}
+}   
 
 .product-card__image {
     width: 100%;
@@ -115,4 +115,8 @@ $accent: #c3c87c;
 
 .flex-grow {
     flex-grow: 1;
+}
+
+.product-detail {
+    padding: 1rem;
 }
