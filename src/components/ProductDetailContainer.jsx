@@ -60,3 +60,4 @@ const ProductDetailContainer = () => {
 }
 
 export default ProductDetailContainer
+

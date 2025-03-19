@@ -1,6 +1,9 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Item from "./Item";
+import { app } from "../firebaseConfig";
+import {} from "firebase/firestore";
+
 
 const ItemListContainer = () => {
 

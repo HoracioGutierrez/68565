@@ -6,7 +6,7 @@ https://lucide.dev/icons/
 https://www.realtimecolors.com/
 https://dummyjson.com/docs
 https://reactrouter.com/home
-
+https://firebase.google.com/docs/reference/js/firestore_.md#@firebase/firestore
 
 Componentes : 
 
@@ -228,3 +228,14 @@ Implementar uso del contexto
 2- importar el hook useContext
 3- importar el contexto creado en el paso 1
 4- usar el contexto(4) como parametro del hook(2) y eso nos da el valor actual del contexto/provider
+
+
+
+Firebase(plataforma)/Firestore(DB)
+
+Funciones de consultas : 
+
+- getDocs : Trae muchos o todos los documentos de una coleccion. Permite filtrar por campos. 
+- getDoc : Trae un solo documento y permite filtrar por DocumentID
+- addDoc : Agrega un documento a una collecion
+- 
