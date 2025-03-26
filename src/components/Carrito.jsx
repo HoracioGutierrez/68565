@@ -3,6 +3,7 @@ import Formulario from "./Formulario"
 import { carritoContexto } from "./CarritoContext"
 import { app } from "../firebaseConfig";
 import { addDoc, collection, getDocs, getFirestore } from "firebase/firestore";
+import toast from "react-hot-toast";
 
 /* 
 
@@ -78,27 +79,23 @@ const Carrito = () => {
 
   const handleClick = () => {
 
-    //la variable "app" representa "toda la pagina firebase"
-    //la variable "db" representa la base de datos Firestore dentro de la pagina
+    const nuevoProducto = {
+      category: "muebles",
+      description: "The Annibale Colombo Bed is a luxurious and elegant bed frame, crafted with high-quality materials for a comfortable and stylish bedroom.",
+      id: 11,
+      price: 1899.99,
+      thumbnail: "https://cdn.dummyjson.com/products/images/furniture/Annibale%20Colombo%20Bed/thumbnail.png",
+      title: "Annibale Colombo Bed"
+    }
+
     const db = getFirestore(app)
-
-    //la variable "productosCollection" representa la coleccion "productos" dentro de la base de datos (db) de la pagina (app)
     const productosCollection = collection(db, "productos")
+    const miConsulta = addDoc(productosCollection, nuevoProducto)
 
-    //agregar un nuevo producto a la coleccion "productos"
-    //addDoc(collection,data)
-    const query = addDoc(productosCollection, {
-      category: "perfumes",
-      description: "J'adore by Dior is a luxurious and floral fragrance, known for its blend of ylang-ylang, rose, and jasmine. It embodies femininity and sophistication.",
-      id: 2,
-      price: 89.99,
-      thumbnail: "https://cdn.dummyjson.com/products/images/fragrances/Dior%20J'adore/thumbnail.png",
-      title: "Dior J'adore"
-    })
-
-    query
+    miConsulta
       .then(() => {
         console.log("Salio todo bien")
+        toast.success("Producto agregado a la base de datos")
       })
       .catch(() => {
         console.log("Salio todo mal")
@@ -137,7 +134,7 @@ const Carrito = () => {
       <Formulario />
 
       <button onClick={handleClick}>agregar producto a DB</button>
-      <button onClick={handleClickTraer}>traer productos a DB</button>
+      <button onClick={handleClickTraer}>traer productos de DB</button>
     </div>
   )
 }

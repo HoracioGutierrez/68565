@@ -2,6 +2,8 @@ import { useContext, useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { carritoContexto } from "./CarritoContext"
 import toast from "react-hot-toast"
+import { addDoc, collection, getDocs, getFirestore, query, where, getDoc, doc } from "firebase/firestore"
+import { app } from "../firebaseConfig"
 
 const ProductDetailContainer = () => {
 
@@ -11,42 +13,63 @@ const ProductDetailContainer = () => {
 
 
     useEffect(() => {
-        fetch('/productos.json')
-            .then((res) => {
-                return res.json()
-            })
-            .then((res) => {
 
-                /* 
-                
-                let productoEncontrado;
 
-                res.forEach((item)=>{
-                    if(item.id == params.id) {
-                        productoEncontrado = item
-                    }
-                }) 
-                    
-                */
+        /* const idNumerico = parseInt(params.id)
+        const db = getFirestore(app)
+        const productosCollection = collection(db, "productos")
+        const miFiltro = query(productosCollection, where("id", "==", idNumerico))
+        const miConsulta = getDocs(miFiltro)
+            .then((respuesta) => {
 
-                const productoEncontrado = res.find((item)=>{
-                    if(item.id == params.id) {
-                        return item
-                    }
+                const productoEncontrado = respuesta.docs.map((doc) => {
+                    return doc.data()
                 })
 
-                setProducto(productoEncontrado)
+                setProducto(productoEncontrado[0])
+            })
+            .catch(() => {
+                console.log("Salio todo mal")
+            }) */
 
-            });
+        const db = getFirestore(app)
+        const productosCollection = collection(db, "productos")
+        const miFiltro = doc(productosCollection, params.id)
+        const miConsulta = getDoc(miFiltro)
+
+        miConsulta
+            .then((respuesta) => {
+                console.log(respuesta.data())
+                setProducto(respuesta.data())
+            })
+            .catch(() => {
+                console.log("Salio todo mal")
+            })
     }, [])
 
 
     const handleClick = async () => {
-        //toast.loading("Agregando producto al carrito")
-        //await new Promise((resolve) => setTimeout(resolve, 1000))
-        valor.handleAgregar(producto)
-        //toast.dismiss()
-        toast.success("Producto agregado al carrito")
+
+
+        const productoCarrito = producto
+        productoCarrito.cantidad = 1
+        productoCarrito.userId = "1234567890"
+
+        const db = getFirestore(app)
+        const carritoCollection = collection(db, "carrito")
+        const miConsulta = addDoc(carritoCollection, productoCarrito)
+
+        miConsulta
+            .then(() => {
+                console.log("Salio todo bien")
+                valor.handleAgregar(producto)
+                toast.success("Producto agregado al carrito")
+            })
+            .catch(() => {
+                console.log("Salio todo mal")
+            })
+
+
     }
 
     return (
