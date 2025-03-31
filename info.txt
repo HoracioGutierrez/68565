@@ -7,6 +7,8 @@ https://www.realtimecolors.com/
 https://dummyjson.com/docs
 https://reactrouter.com/home
 https://firebase.google.com/docs/reference/js/firestore_.md#@firebase/firestore
+https://www.npmjs.com/package/dotenv
+https://www.markdownguide.org/cheat-sheet/
 
 Componentes : 
 
@@ -239,3 +241,15 @@ Funciones de consultas :
 - getDoc : Trae un solo documento y permite filtrar por DocumentID
 - addDoc : Agrega un documento a una collecion
 - 
+
+
+
+
+
+- Build & Deploy en Vercel / Netlify : Build es la "compilacion" del codigo
+
+- Variables de entorno : Son variables del sistema, no le pertenecen a JS pero las puede usar. Para vite se usa el prefijo VITE_ y el archivo .env
+
+- README 
+
+- Errores comunes
